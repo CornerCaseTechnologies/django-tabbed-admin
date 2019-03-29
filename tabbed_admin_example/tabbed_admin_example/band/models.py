@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 
-from django.utils.encoding import python_2_unicode_compatible
-
-
-@python_2_unicode_compatible
 class Band(models.Model):
     name = models.CharField(max_length=100)
     bio = models.TextField(blank=True, null=True)
@@ -29,7 +25,7 @@ class Band(models.Model):
 
 
 class Musician(models.Model):
-    band = models.ForeignKey(Band)
+    band = models.ForeignKey(Band, on_delete=models.SET_NULL, null=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     specialty = models.CharField(max_length=100, choices=(
@@ -41,18 +37,18 @@ class Musician(models.Model):
 
 
 class Concert(models.Model):
-    band = models.ForeignKey(Band)
+    band = models.ForeignKey(Band, on_delete=models.SET_NULL, null=True)
     location = models.CharField(max_length=100)
     date = models.DateField()
 
 
 class Album(models.Model):
-    band = models.ForeignKey(Band)
+    band = models.ForeignKey(Band, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=100)
     date = models.DateField()
 
 
 class Interview(models.Model):
-    band = models.ForeignKey(Band)
+    band = models.ForeignKey(Band, on_delete=models.SET_NULL, null=True)
     media_name = models.CharField(max_length=100)
     date = models.DateField()
