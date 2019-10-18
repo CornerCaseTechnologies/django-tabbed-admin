@@ -1,6 +1,7 @@
-from .admin import TabbedModelAdmin
+from .admin import TabbedModelAdmin, AdminInlineWithSelectRelated
 
 __author__ = 'Guillaume Pousseo'
 __all__ = [
-    "TabbedModelAdmin"
+    "TabbedModelAdmin",
+    "AdminInlineWithSelectRelated"
 ]

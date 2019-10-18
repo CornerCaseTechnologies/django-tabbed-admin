@@ -1,16 +1,52 @@
 from django.conf import settings
-from django.contrib.admin.options import ModelAdmin
+from django.contrib import admin
+from django.contrib.admin.options import BaseModelAdmin, ModelAdmin
+from django.db.models.constants import LOOKUP_SEP
 from django.utils.translation import ugettext_lazy as _
 
-# from .settings import USE_JQUERY_UI, JQUERY_UI_CSS, JQUERY_UI_JS
+from .settings import USE_JQUERY_UI, JQUERY_UI_CSS, JQUERY_UI_JS
 
+class AdminBaseWithSelectRelated(BaseModelAdmin):
+    """
+    Admin Base using list_select_related for get_queryset related fields
+    """
+    list_select_related = []
+    def get_queryset(self, request):
+        return super(AdminBaseWithSelectRelated, self).get_queryset(request).select_related(*self.list_select_related)
 
-class TabbedModelAdmin(ModelAdmin):
+    def form_apply_select_related(self, form):
+        for related_field in self.list_select_related:
+            splitted = related_field.split(LOOKUP_SEP)
+
+            if len(splitted) > 1:
+                field = splitted[0]
+                related = LOOKUP_SEP.join(splitted[1:])
+                form.base_fields[field].queryset = form.base_fields[field].queryset.select_related(related)    
+
+class AdminInlineWithSelectRelated(admin.TabularInline, AdminBaseWithSelectRelated):
+    """
+    Admin Inline using list_select_related for get_queryset and get_formset related fields
+    """
+    def get_formset(self, request, obj=None, **kwargs):
+        formset = super(AdminInlineWithSelectRelated, self).get_formset(request, obj, **kwargs)
+
+        self.form_apply_select_related(formset.form)
+
+        return formset
+
+class TabbedModelAdmin(admin.ModelAdmin, AdminBaseWithSelectRelated):
     tabs = None
     formatted_tabs = {}
 
     # Needs a specific template to display the tabs
     change_form_template = 'tabbed_admin/change_form.html'
+    
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(TabbedModelAdmin, self).get_form(request, obj, **kwargs)
+
+        self.form_apply_select_related(form)
+
+        return form
 
     def get_fieldsets(self, request, obj=None):
         """
@@ -137,22 +173,14 @@ class TabbedModelAdmin(ModelAdmin):
             )
         return change_view
 
-    # class Media:
-    #     """
-    #     Extends media class to add custom jquery ui if
-    #     TABBED_ADMIN_USE_JQUERY_UI is set to True.
-    #     """
-         # if USE_JQUERY_UI:
-    #         css = {'all': (JQUERY_UI_CSS, 'tabbed_admin/css/tabbed_admin.css', )}
-    #         js = (JQUERY_UI_JS,)
     class Media:
-        js = [
-            "tabbed_admin/js/polyfill.min.js",
-            "tabbed_admin/js/vue.min.js",
-            "tabbed_admin/js/bootstrap-vue.min.js"
-        ]   
-        css = {'all':(
-            'tabbed_admin/css/bootstrap.min.css',
-            'tabbed_admin/css/bootstrap-vue.min.css'
-            )
-        }
+        """
+        Extends media class to add custom jquery ui if
+        TABBED_ADMIN_USE_JQUERY_UI is set to True.
+        """
+        if 'grappelli' in settings.INSTALLED_APPS:
+            css = {'all': ("tabbed_admin/css/tabbed_grappelli_admin.css", )}
+
+        if USE_JQUERY_UI:
+            css = {'all': (JQUERY_UI_CSS, 'tabbed_admin/css/tabbed_admin.css', )}
+            js = (JQUERY_UI_JS,)
