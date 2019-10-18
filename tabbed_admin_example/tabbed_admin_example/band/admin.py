@@ -4,27 +4,22 @@ from tabbed_admin import TabbedModelAdmin
 from .models import Band, Musician, Concert, Album, Interview
 
 
-class MusicianInline(admin.StackedInline):
+class MusicianInline(admin.TabularInline):
     model = Musician
     extra = 1
-
 
 class ConcertInline(admin.TabularInline):
     model = Concert
     extra = 1
 
-
 class AlbumInline(admin.TabularInline):
     model = Album
     extra = 1
 
-
-class InterviewInline(admin.TabularInline):
+class InterviewInline(admin.StackedInline):
     model = Interview
     extra = 1
 
-
-@admin.register(Band)
 class BandAdmin(TabbedModelAdmin):
     model = Band
 
@@ -49,3 +44,5 @@ class BandAdmin(TabbedModelAdmin):
         ('Overview', tab_overview),
         ('Ressources', tab_ressources)
     ]
+
+admin.site.register(Band, BandAdmin)

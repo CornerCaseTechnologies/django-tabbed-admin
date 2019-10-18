@@ -6,6 +6,7 @@ class Band(models.Model):
     bio = models.TextField(blank=True, null=True)
     style = models.CharField(max_length=100, choices=(
         ('rock', 'Rock'),
+        ('metal', 'Metal'),
         ('funk', 'Funk'),
         ('jazz', 'Jazz')
     ))

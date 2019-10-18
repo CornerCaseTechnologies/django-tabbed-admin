@@ -5,7 +5,6 @@ from django.conf import settings
 
 # Activate the library jquery ui
 USE_JQUERY_UI = getattr(settings, "TABBED_ADMIN_USE_JQUERY_UI", False)
-USE_GRAPPELLI = getattr(settings, "TABBED_ADMIN_USE_GRAPPELLI", False)
 
 # Default jquery ui css and js
 DEFAULT_JQUERY_UI_CSS = 'tabbed_admin/css/jquery-ui-1.11.4.min.css'

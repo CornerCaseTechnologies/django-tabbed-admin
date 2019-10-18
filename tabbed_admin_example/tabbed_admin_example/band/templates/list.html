@@ -1,0 +1,53 @@
+{% if musicians_json %}
+<head>
+	<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+	<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"/>
+	<script src="//unpkg.com/@babel/polyfill@latest/dist/polyfill.min.js"></script>
+	<script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
+	<script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+</head>
+
+<script type="text/javascript">
+    var musicians = {{ musicians_json|safe }};
+    var bands = {{bands_json|safe }};
+</script>
+	<div id="app">
+	<b-jumbotron class=bg-success header="Vuetiful Django Tabs" lead="A Django library for a more tabbed admin!">
+    </b-jumbotron>
+	<ul>
+		<li v-for="person in musicians">
+		<a v-bind:href="person.url">[[ person.first_name ]], [[ person.last_name ]]</a> <button v-on:click="greet(person)">hey</button>
+		</li>
+	</ul>
+	<div>
+	  <b-card class=bg-dark no-body>
+	    <b-tabs card>
+	      <b-tab title="Tab 1" active>
+	        <b-card-text>Tab Contents 1</b-card-text>
+	      </b-tab>
+	      <b-tab title="Tab 2">
+	        <b-card-text>Tab Contents 2</b-card-text>
+	      </b-tab>
+	    </b-tabs>
+	  </b-card>
+	</div>
+	</div>
+
+  <script>
+    var app = new Vue({
+      delimiters: ['[[', ']]'],
+      el: '#app',
+      data: {
+          title: 'Vuetiful Django Tabs!',
+          musicians: musicians,
+      },
+      methods: {
+          greet: function(person) {
+              console.log('Hello from ' + person.first_name + '!')
+          }
+      }
+    });
+  </script>
+{% else %}
+  <p>No items available.</p>
+{% endif %}
