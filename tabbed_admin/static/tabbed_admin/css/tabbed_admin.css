@@ -1,1 +1,26 @@
-#tabs{clear:both}.ui-state-default a.errortab{background-color:red;color:white}.ui-tabs .ui-tabs-panel{overflow:hidden}
+#tabs {
+    clear: both
+}
+
+.ui-state-default a.errortab {
+    background-color: red;
+    color: white
+}
+
+.ui-tabs .ui-tabs-panel {
+    overflow: hidden
+}
+
+li.nav-item {
+	list-style-type: unset;
+}
+
+
+.form-row {
+    display: -ms-flexbox;
+    display: table-row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}

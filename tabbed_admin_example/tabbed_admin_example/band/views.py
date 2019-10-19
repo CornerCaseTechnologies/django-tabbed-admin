@@ -1,4 +1,3 @@
-import random
 import json
 from django.shortcuts import render
 from .models import *

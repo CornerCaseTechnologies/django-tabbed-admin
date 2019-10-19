@@ -19,70 +19,27 @@
 
             <!-- start admin_tabs stuff -->
             <div id="tabs">
-                <ul>
+                <b-card no-body>
+                    <b-tabs card>
                     {% for tab in tabs.fields %}
-                      <li><a href="#tabs-{{ forloop.counter }}" id="for_tabs-{{ forloop.counter }}">{{ tab.name }}</a></li>
+                      <b-tab title={{ tab.name }} id="for_tabs-{{ forloop.counter }}" class={{ tab.name }}>
+                        <b-card-text>
+                            {% for entry in tab.entries %}
+                                    {% render_tab_fieldsets_inlines entry %}
+                            {% endfor %}
+                        </b-card-text>
+                      </b-tab>
                     {% endfor %}
-                </ul>
-                {% for tab in tabs.fields %}
-                    <div id="tabs-{{ forloop.counter }}" class="{{ tab.name }}">
-                        {% for entry in tab.entries %}
-                            {% render_tab_fieldsets_inlines entry %}
-                        {% endfor %}
-                    </div>
-                {% endfor %}
+                    </b-tabs card>
+                </b-card>
             </div>
-            <script type="text/javascript">
-                (function($) {
-                    $(window).scrollTop()
-                    $('#tabs').tabs({
-                        {% if add %}
-                        // when adding, don't select a tab by default, we'll do it ourselves
-                        // by finding the first available tab.
-                        selected: -1
-                        {% endif %}
-                    });
-
-                    // disable tabs marked as such in page_config
-                    var enabled_tabs = [];
-                    var disabled_tabs = [];
-
-                    {% for tab in page_config %}
-                        {% if tab.enabled %}
-                            enabled_tabs.push({{ forloop.counter0 }});
-                        {% else %}
-                            disabled_tabs.push({{ forloop.counter0 }});
-                        {% endif %}
-                    {% endfor %}
-
-                    for (var i = 0; i < disabled_tabs.length; i++) {
-                        $('#tabs').tabs("disable", disabled_tabs[i]);
-                    }
-                    // enable the first non-disabled tab in add view
-                    {% if add %}
-                        $('#tabs').tabs("option", "active", enabled_tabs[0]);
-                    {% endif %}
-
-                    // Hightlight tabs with errors inside
-                    $('#tabs > div').each(function() {
-                        if($(this).find('.errorlist').length) {
-                            $('#tabs #for_' +  this.id).addClass("errortab");
-                        }
-                    });
-
-                    $("#tabs").on('tabsactivate', function(event, ui) {
-                        var scrollPos = $(window).scrollTop();
-                        var hash = ui.newTab.children("li a").attr("href");
-                        window.location.hash = hash;
-                        $(window).scrollTop(scrollPos);
-                    });
-
-                    if ($('.errornote').length) {
-                        $('.errornote').addClass('tabbed-errornote');
-                    }
-
-
-                })(django.jQuery);
+            <!-- Vue.js test starts -->
+            <script>
+            var tabs = new Vue({
+              delimiters: ['[[', ']]'],
+              el: '#tabs',
+              data: {}
+            });
             </script>
             <!-- end admin_tabs stuff -->
 

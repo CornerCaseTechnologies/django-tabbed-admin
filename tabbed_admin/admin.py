@@ -12,16 +12,22 @@ class AdminBaseWithSelectRelated(BaseModelAdmin):
     """
     list_select_related = []
     def get_queryset(self, request):
-        return super(AdminBaseWithSelectRelated, self).get_queryset(request).select_related(*self.list_select_related)
+        if self.list_select_related == False:
+            super(AdminBaseWithSelectRelated, self).get_queryset(request)
+        else:
+            return super(AdminBaseWithSelectRelated, self).get_queryset(request).select_related(*self.list_select_related)
 
     def form_apply_select_related(self, form):
-        for related_field in self.list_select_related:
-            splitted = related_field.split(LOOKUP_SEP)
+        if self.list_select_related == False:
+            pass    
+        else:
+            for related_field in self.list_select_related:
+                splitted = related_field.split(LOOKUP_SEP)
 
-            if len(splitted) > 1:
-                field = splitted[0]
-                related = LOOKUP_SEP.join(splitted[1:])
-                form.base_fields[field].queryset = form.base_fields[field].queryset.select_related(related)    
+                if len(splitted) > 1:
+                    field = splitted[0]
+                    related = LOOKUP_SEP.join(splitted[1:])
+                    form.base_fields[field].queryset = form.base_fields[field].queryset.select_related(related)    
 
 class AdminInlineWithSelectRelated(admin.TabularInline, AdminBaseWithSelectRelated):
     """
@@ -178,9 +184,14 @@ class TabbedModelAdmin(admin.ModelAdmin, AdminBaseWithSelectRelated):
         Extends media class to add custom jquery ui if
         TABBED_ADMIN_USE_JQUERY_UI is set to True.
         """
-        if 'grappelli' in settings.INSTALLED_APPS:
-            css = {'all': ("tabbed_admin/css/tabbed_grappelli_admin.css", )}
-
-        if USE_JQUERY_UI:
-            css = {'all': (JQUERY_UI_CSS, 'tabbed_admin/css/tabbed_admin.css', )}
-            js = (JQUERY_UI_JS,)
+        js = [
+            "tabbed_admin/js/polyfill.min.js",
+            "tabbed_admin/js/vue.min.js",
+            "tabbed_admin/js/bootstrap-vue.min.js"
+        ]   
+        css = {'all':(
+            'tabbed_admin/css/bootstrap.min.css',
+            'tabbed_admin/css/bootstrap-vue.min.css',
+            'tabbed_admin/css/tabbed_admin.css',
+            )
+        }
