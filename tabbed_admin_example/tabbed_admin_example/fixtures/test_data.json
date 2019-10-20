@@ -1,0 +1,965 @@
+[
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields":
+    {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields":
+    {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields":
+    {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields":
+    {
+        "app_label": "auth",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields":
+    {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields":
+    {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields":
+    {
+        "app_label": "band",
+        "model": "album"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields":
+    {
+        "app_label": "band",
+        "model": "band"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields":
+    {
+        "app_label": "band",
+        "model": "concert"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields":
+    {
+        "app_label": "band",
+        "model": "interview"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields":
+    {
+        "app_label": "band",
+        "model": "musician"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields":
+    {
+        "app_label": "recipes",
+        "model": "ingredients"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields":
+    {
+        "app_label": "recipes",
+        "model": "recipe"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields":
+    {
+        "app_label": "recipes",
+        "model": "recipeingredients"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "9sr0vorp76uyq84emaqg1kpvry403e58",
+    "fields":
+    {
+        "session_data": "ZDZkNzA5OTZlZjg3NjYwNWNlMzVhZWJlYjgxODRjODYzMmM0OWQxYjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjMjhhZjcwMWFkYjljNTFhYjI1MWI1NzU2NDNiZDQ1NTI2OTIwYWI2In0=",
+        "expire_date": "2019-11-03T13:48:40.029Z"
+    }
+},
+{
+    "model": "recipes.ingredients",
+    "pk": 1,
+    "fields":
+    {
+        "name": "Water",
+        "category": "ING"
+    }
+},
+{
+    "model": "recipes.ingredients",
+    "pk": 2,
+    "fields":
+    {
+        "name": "Yeast",
+        "category": "ING"
+    }
+},
+{
+    "model": "recipes.ingredients",
+    "pk": 3,
+    "fields":
+    {
+        "name": "Sugar",
+        "category": "ING"
+    }
+},
+{
+    "model": "recipes.ingredients",
+    "pk": 4,
+    "fields":
+    {
+        "name": "Salt",
+        "category": "ING"
+    }
+},
+{
+    "model": "recipes.ingredients",
+    "pk": 5,
+    "fields":
+    {
+        "name": "Canola Oil",
+        "category": "ING"
+    }
+},
+{
+    "model": "recipes.ingredients",
+    "pk": 6,
+    "fields":
+    {
+        "name": "Flour",
+        "category": "ING"
+    }
+},
+{
+    "model": "recipes.ingredients",
+    "pk": 7,
+    "fields":
+    {
+        "name": "Bread",
+        "category": "FIN"
+    }
+},
+{
+    "model": "recipes.recipe",
+    "pk": 1,
+    "fields":
+    {
+        "recipe_name": 7,
+        "recipe_contact": "Grandma"
+    }
+},
+{
+    "model": "recipes.recipeingredients",
+    "pk": 1,
+    "fields":
+    {
+        "recipe": 1,
+        "ingredient": 1,
+        "amount": "2.25",
+        "amount_category": "cups"
+    }
+},
+{
+    "model": "recipes.recipeingredients",
+    "pk": 2,
+    "fields":
+    {
+        "recipe": 1,
+        "ingredient": 2,
+        "amount": "0.25",
+        "amount_category": "oz"
+    }
+},
+{
+    "model": "recipes.recipeingredients",
+    "pk": 3,
+    "fields":
+    {
+        "recipe": 1,
+        "ingredient": 3,
+        "amount": "3.00",
+        "amount_category": "tbs"
+    }
+},
+{
+    "model": "recipes.recipeingredients",
+    "pk": 4,
+    "fields":
+    {
+        "recipe": 1,
+        "ingredient": 4,
+        "amount": "1.00",
+        "amount_category": "tbs"
+    }
+},
+{
+    "model": "recipes.recipeingredients",
+    "pk": 5,
+    "fields":
+    {
+        "recipe": 1,
+        "ingredient": 5,
+        "amount": "2.00",
+        "amount_category": "tbs"
+    }
+},
+{
+    "model": "recipes.recipeingredients",
+    "pk": 6,
+    "fields":
+    {
+        "recipe": 1,
+        "ingredient": 6,
+        "amount": "6.50",
+        "amount_category": "cups"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields":
+    {
+        "name": "Can add log entry",
+        "content_type": 1,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields":
+    {
+        "name": "Can change log entry",
+        "content_type": 1,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields":
+    {
+        "name": "Can delete log entry",
+        "content_type": 1,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields":
+    {
+        "name": "Can view log entry",
+        "content_type": 1,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields":
+    {
+        "name": "Can add permission",
+        "content_type": 2,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields":
+    {
+        "name": "Can change permission",
+        "content_type": 2,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields":
+    {
+        "name": "Can delete permission",
+        "content_type": 2,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields":
+    {
+        "name": "Can view permission",
+        "content_type": 2,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields":
+    {
+        "name": "Can add group",
+        "content_type": 3,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields":
+    {
+        "name": "Can change group",
+        "content_type": 3,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields":
+    {
+        "name": "Can delete group",
+        "content_type": 3,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields":
+    {
+        "name": "Can view group",
+        "content_type": 3,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields":
+    {
+        "name": "Can add user",
+        "content_type": 4,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields":
+    {
+        "name": "Can change user",
+        "content_type": 4,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields":
+    {
+        "name": "Can delete user",
+        "content_type": 4,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields":
+    {
+        "name": "Can view user",
+        "content_type": 4,
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields":
+    {
+        "name": "Can add content type",
+        "content_type": 5,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields":
+    {
+        "name": "Can change content type",
+        "content_type": 5,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields":
+    {
+        "name": "Can delete content type",
+        "content_type": 5,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields":
+    {
+        "name": "Can view content type",
+        "content_type": 5,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields":
+    {
+        "name": "Can add session",
+        "content_type": 6,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields":
+    {
+        "name": "Can change session",
+        "content_type": 6,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields":
+    {
+        "name": "Can delete session",
+        "content_type": 6,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields":
+    {
+        "name": "Can view session",
+        "content_type": 6,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields":
+    {
+        "name": "Can add album",
+        "content_type": 7,
+        "codename": "add_album"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields":
+    {
+        "name": "Can change album",
+        "content_type": 7,
+        "codename": "change_album"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields":
+    {
+        "name": "Can delete album",
+        "content_type": 7,
+        "codename": "delete_album"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields":
+    {
+        "name": "Can view album",
+        "content_type": 7,
+        "codename": "view_album"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields":
+    {
+        "name": "Can add band",
+        "content_type": 8,
+        "codename": "add_band"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields":
+    {
+        "name": "Can change band",
+        "content_type": 8,
+        "codename": "change_band"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields":
+    {
+        "name": "Can delete band",
+        "content_type": 8,
+        "codename": "delete_band"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields":
+    {
+        "name": "Can view band",
+        "content_type": 8,
+        "codename": "view_band"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields":
+    {
+        "name": "Can add concert",
+        "content_type": 9,
+        "codename": "add_concert"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields":
+    {
+        "name": "Can change concert",
+        "content_type": 9,
+        "codename": "change_concert"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields":
+    {
+        "name": "Can delete concert",
+        "content_type": 9,
+        "codename": "delete_concert"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields":
+    {
+        "name": "Can view concert",
+        "content_type": 9,
+        "codename": "view_concert"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields":
+    {
+        "name": "Can add interview",
+        "content_type": 10,
+        "codename": "add_interview"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields":
+    {
+        "name": "Can change interview",
+        "content_type": 10,
+        "codename": "change_interview"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields":
+    {
+        "name": "Can delete interview",
+        "content_type": 10,
+        "codename": "delete_interview"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields":
+    {
+        "name": "Can view interview",
+        "content_type": 10,
+        "codename": "view_interview"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 41,
+    "fields":
+    {
+        "name": "Can add musician",
+        "content_type": 11,
+        "codename": "add_musician"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 42,
+    "fields":
+    {
+        "name": "Can change musician",
+        "content_type": 11,
+        "codename": "change_musician"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 43,
+    "fields":
+    {
+        "name": "Can delete musician",
+        "content_type": 11,
+        "codename": "delete_musician"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 44,
+    "fields":
+    {
+        "name": "Can view musician",
+        "content_type": 11,
+        "codename": "view_musician"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 45,
+    "fields":
+    {
+        "name": "Can add ingredients",
+        "content_type": 12,
+        "codename": "add_ingredients"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 46,
+    "fields":
+    {
+        "name": "Can change ingredients",
+        "content_type": 12,
+        "codename": "change_ingredients"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 47,
+    "fields":
+    {
+        "name": "Can delete ingredients",
+        "content_type": 12,
+        "codename": "delete_ingredients"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 48,
+    "fields":
+    {
+        "name": "Can view ingredients",
+        "content_type": 12,
+        "codename": "view_ingredients"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 49,
+    "fields":
+    {
+        "name": "Can add recipe",
+        "content_type": 13,
+        "codename": "add_recipe"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 50,
+    "fields":
+    {
+        "name": "Can change recipe",
+        "content_type": 13,
+        "codename": "change_recipe"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 51,
+    "fields":
+    {
+        "name": "Can delete recipe",
+        "content_type": 13,
+        "codename": "delete_recipe"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 52,
+    "fields":
+    {
+        "name": "Can view recipe",
+        "content_type": 13,
+        "codename": "view_recipe"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 53,
+    "fields":
+    {
+        "name": "Can add recipe ingredients",
+        "content_type": 14,
+        "codename": "add_recipeingredients"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 54,
+    "fields":
+    {
+        "name": "Can change recipe ingredients",
+        "content_type": 14,
+        "codename": "change_recipeingredients"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 55,
+    "fields":
+    {
+        "name": "Can delete recipe ingredients",
+        "content_type": 14,
+        "codename": "delete_recipeingredients"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 56,
+    "fields":
+    {
+        "name": "Can view recipe ingredients",
+        "content_type": 14,
+        "codename": "view_recipeingredients"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields":
+    {
+        "password": "pbkdf2_sha256$120000$emnu9fpGqlCW$IxQCCy/qhu9jMBADIDua18Py7e4m0WPWotQFupGLAJk=",
+        "last_login": "2019-10-20T13:48:40.012Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-10-20T13:48:30.633Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields":
+    {
+        "action_time": "2019-10-20T13:51:22.605Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "1",
+        "object_repr": "Ingredients object (1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields":
+    {
+        "action_time": "2019-10-20T13:54:21.445Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "2",
+        "object_repr": "Yeast",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields":
+    {
+        "action_time": "2019-10-20T13:54:58.694Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "3",
+        "object_repr": "Sugar",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields":
+    {
+        "action_time": "2019-10-20T13:55:06.942Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "4",
+        "object_repr": "Salt",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields":
+    {
+        "action_time": "2019-10-20T13:55:19.241Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "5",
+        "object_repr": "Canola Oil",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields":
+    {
+        "action_time": "2019-10-20T13:55:31.035Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "6",
+        "object_repr": "Flour",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields":
+    {
+        "action_time": "2019-10-20T13:55:42.571Z",
+        "user": 1,
+        "content_type": 12,
+        "object_id": "7",
+        "object_repr": "Bread",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields":
+    {
+        "action_time": "2019-10-20T16:06:51.989Z",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "1",
+        "object_repr": "Bread",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"recipe ingredients\", \"object\": \"Bread | Water\"}}, {\"added\": {\"name\": \"recipe ingredients\", \"object\": \"Bread | Yeast\"}}, {\"added\": {\"name\": \"recipe ingredients\", \"object\": \"Bread | Sugar\"}}, {\"added\": {\"name\": \"recipe ingredients\", \"object\": \"Bread | Salt\"}}, {\"added\": {\"name\": \"recipe ingredients\", \"object\": \"Bread | Canola Oil\"}}, {\"added\": {\"name\": \"recipe ingredients\", \"object\": \"Bread | Flour\"}}]"
+    }
+}]

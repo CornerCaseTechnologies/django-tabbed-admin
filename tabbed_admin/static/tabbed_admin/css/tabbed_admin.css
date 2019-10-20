@@ -12,9 +12,30 @@
 }
 
 li.nav-item {
-	list-style-type: unset;
+    list-style-type: unset;
 }
 
+tr.empty-form {
+    display: none;
+}
+
+.inline-group .tabular td.original p {
+    display: none;
+}
+
+.inline-group .tabular tr.has_original td {
+    padding-top: 0.5em;
+}
+
+.submit-row a.deletelink {
+    display: block;
+    background: #ba2121;
+    border-radius: 4px;
+    padding: 10px 15px;
+    height: 35px;
+    line-height: 15px;
+    color: #fff;
+}
 
 .form-row {
     display: -ms-flexbox;

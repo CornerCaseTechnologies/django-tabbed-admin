@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tabbed_admin',
-    'tabbed_admin_example.band'
+    'tabbed_admin_example.band',
+    'tabbed_admin_example.recipes'
 ]
 
 MIDDLEWARE = [
