@@ -1,18 +1,18 @@
 from django.contrib import admin
 
-from tabbed_admin import TabbedModelAdmin
+from tabbed_admin import TabbedModelAdmin, AdminInlineWithSelectRelated
 from .models import Band, Musician, Concert, Album, Interview
 
 
-class MusicianInline(admin.TabularInline):
+class MusicianInline(AdminInlineWithSelectRelated):
     model = Musician
     extra = 1
 
-class ConcertInline(admin.TabularInline):
+class ConcertInline(AdminInlineWithSelectRelated):
     model = Concert
     extra = 1
 
-class AlbumInline(admin.TabularInline):
+class AlbumInline(AdminInlineWithSelectRelated):
     model = Album
     extra = 1
 
@@ -22,6 +22,8 @@ class InterviewInline(admin.StackedInline):
 
 class BandAdmin(TabbedModelAdmin):
     model = Band
+    list_display = ['name']
+    list_select_related = []
 
     tab_overview = (
         (None, {

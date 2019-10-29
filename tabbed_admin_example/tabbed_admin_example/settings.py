@@ -25,7 +25,7 @@ SECRET_KEY = 'z!(5$@(sa!y@*oc5t(67@ju5&6($21f(=6d=@p8@9!l&54aiyj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tabbed_admin',
     'tabbed_admin_example.band',
-    'tabbed_admin_example.recipes'
+    'tabbed_admin_example.recipes',
+    'debug_toolbar'
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

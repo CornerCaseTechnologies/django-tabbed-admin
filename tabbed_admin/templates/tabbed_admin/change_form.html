@@ -22,7 +22,7 @@
                 <b-card no-body>
                     <b-tabs card>
                     {% for tab in tabs.fields %}
-                      <b-tab title={{ tab.name }} id="for_tabs-{{ forloop.counter }}" class={{ tab.name }}>
+                      <b-tab title="{{ tab.name }}" id="for_tabs-{{ forloop.counter }}" class="{{ tab.name }}">
                         <b-card-text>
                             {% for entry in tab.entries %}
                                     {% render_tab_fieldsets_inlines entry %}

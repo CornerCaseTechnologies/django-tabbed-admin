@@ -2,6 +2,15 @@
     clear: both
 }
 
+.form-row {
+    display: -ms-flexbox;
+    display: table-row !important; 
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
 .ui-state-default a.errortab {
     background-color: red;
     color: white
@@ -16,6 +25,18 @@ li.nav-item {
 }
 
 tr.empty-form {
+    display: none !important;
+}
+
+th.original {
+    display: none;
+}
+
+th tr.original {
+    display: none;
+}
+
+td.original {
     display: none;
 }
 
@@ -35,13 +56,4 @@ tr.empty-form {
     height: 35px;
     line-height: 15px;
     color: #fff;
-}
-
-.form-row {
-    display: -ms-flexbox;
-    display: table-row;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -5px;
-    margin-left: -5px;
 }

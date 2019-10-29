@@ -1,5 +1,5 @@
 from django.contrib import admin
-from tabbed_admin import TabbedModelAdmin
+from tabbed_admin import TabbedModelAdmin, AdminInlineWithSelectRelated
 from .models import Recipe, Ingredients, RecipeIngredients
 # Register your models here.
 
@@ -15,6 +15,8 @@ class RecipeIngredientsInline(admin.TabularInline):
 
 class RecipesAdmin(TabbedModelAdmin):
 	model = Recipe
+	list_select_related = ['recipe_name']
+	list_display = ['recipe_name']
 	search_fields = ['recipe_name']
 
 	fieldsets = [(None, {'fields': ('recipe_name', 'recipe_contact')})]
@@ -27,4 +29,4 @@ class RecipesAdmin(TabbedModelAdmin):
 	]
 
 admin.site.register(Recipe, RecipesAdmin)
-admin.site.register(Ingredients, IngredientsAdmin)	
+admin.site.register(Ingredients, IngredientsAdmin)

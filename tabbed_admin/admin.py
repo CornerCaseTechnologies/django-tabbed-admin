@@ -6,53 +6,52 @@ from django.utils.translation import ugettext_lazy as _
 
 from .settings import USE_JQUERY_UI, JQUERY_UI_CSS, JQUERY_UI_JS
 
-# class AdminBaseWithSelectRelated(BaseModelAdmin):
-#     """
-#     Admin Base using list_select_related for get_queryset related fields
-#     """
-#     list_select_related = []
-#     def get_queryset(self, request):
-#         if self.list_select_related == False:
-#             super(AdminBaseWithSelectRelated, self).get_queryset(request)
-#         else:
-#             return super(AdminBaseWithSelectRelated, self).get_queryset(request).select_related(*self.list_select_related)
+class AdminBaseWithSelectRelated(BaseModelAdmin):
+    """
+    Admin Base using list_select_related for get_queryset related fields
+    """
+    list_select_related = False
+    def get_queryset(self, request):
+        
+        if self.list_select_related == False:
+            super(AdminBaseWithSelectRelated, self).get_queryset(request)
+        else:
+            return super(AdminBaseWithSelectRelated, self).get_queryset(request).select_related(*self.list_select_related)
 
-#     def form_apply_select_related(self, form):
-#         if self.list_select_related == False:
-#             pass    
-#         else:
-#             for related_field in self.list_select_related:
-#                 splitted = related_field.split(LOOKUP_SEP)
+    def form_apply_select_related(self, form):
+        
+        if self.list_select_related == False:
+            pass    
+        else:
+            for related_field in self.list_select_related:
+                splitted = related_field.split(LOOKUP_SEP)
 
-#                 if len(splitted) > 1:
-#                     field = splitted[0]
-#                     related = LOOKUP_SEP.join(splitted[1:])
-#                     form.base_fields[field].queryset = form.base_fields[field].queryset.select_related(related)    
+                if len(splitted) > 1:
+                    field = splitted[0]
+                    related = LOOKUP_SEP.join(splitted[1:])
+                    form.base_fields[field].queryset = form.base_fields[field].queryset.select_related(related)    
 
-# class AdminInlineWithSelectRelated(admin.TabularInline, AdminBaseWithSelectRelated):
-#     """
-#     Admin Inline using list_select_related for get_queryset and get_formset related fields
-#     """
-#     def get_formset(self, request, obj=None, **kwargs):
-#         formset = super(AdminInlineWithSelectRelated, self).get_formset(request, obj, **kwargs)
+class AdminInlineWithSelectRelated(admin.TabularInline, AdminBaseWithSelectRelated):
+    """
+    Admin Inline using list_select_related for get_queryset and get_formset related fields
+    """
+    template = 'tabbed_admin/edit_inline/tabular_inline_table.html'
+    def get_formset(self, request, obj=None, **kwargs):
+        formset = super(AdminInlineWithSelectRelated, self).get_formset(request, obj, **kwargs)
+        self.form_apply_select_related(formset.form)
+        return formset
 
-#         self.form_apply_select_related(formset.form)
-
-#         return formset
-
-class TabbedModelAdmin(admin.ModelAdmin):
+class TabbedModelAdmin(admin.ModelAdmin, AdminBaseWithSelectRelated):
     tabs = None
     formatted_tabs = {}
 
     # Needs a specific template to display the tabs
     change_form_template = 'tabbed_admin/change_form.html'
     
-    # def get_form(self, request, obj=None, **kwargs):
-    #     form = super(TabbedModelAdmin, self).get_form(request, obj, **kwargs)
-
-    #     self.form_apply_select_related(form)
-
-    #     return form
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(TabbedModelAdmin, self).get_form(request, obj, **kwargs)
+        self.form_apply_select_related(form)
+        return form
 
     def get_fieldsets(self, request, obj=None):
         """
@@ -141,8 +140,6 @@ class TabbedModelAdmin(admin.ModelAdmin):
                                            'name': tab_entry[0],
                                            'config': tab_entry[1]}
                 else:
-                    print(tab_entry)
-                    print(dir(tab_entry))
                     tabs_inlines = tabs_inlines + (tab_entry, )
                     formatted_tab_entry = {'type': 'inline',
                                            'name': tab_entry.__name__}
@@ -192,8 +189,8 @@ class TabbedModelAdmin(admin.ModelAdmin):
             "tabbed_admin/js/bootstrap-vue.min.js"
         ]   
         css = {'all':(
+            'tabbed_admin/css/tabbed_admin.css',
             'tabbed_admin/css/bootstrap.min.css',
             'tabbed_admin/css/bootstrap-vue.min.css',
-            'tabbed_admin/css/tabbed_admin.css',
             )
         }
