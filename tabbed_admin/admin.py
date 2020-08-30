@@ -14,7 +14,7 @@ class AdminBaseWithSelectRelated(BaseModelAdmin):
     def get_queryset(self, request):
         
         if self.list_select_related == False:
-            super(AdminBaseWithSelectRelated, self).get_queryset(request)
+            return super(AdminBaseWithSelectRelated, self).get_queryset(request)
         else:
             return super(AdminBaseWithSelectRelated, self).get_queryset(request).select_related(*self.list_select_related)
 
