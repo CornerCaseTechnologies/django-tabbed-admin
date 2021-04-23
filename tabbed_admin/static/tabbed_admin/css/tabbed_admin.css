@@ -57,3 +57,35 @@ td.original {
     line-height: 15px;
     color: #fff;
 }
+
+
+#tabs .ui-widget-header {
+  background: var(--darkened-bg);
+}
+#tabs .ui-widget-content {
+  background: var(--body-bg);
+}
+#tabs .ui-widget-content a {
+  color: var(--button-fg);
+}
+#tabs .ui-widget-content {
+  color: var(--body-fg);
+}
+
+#tabs .ui-state-default, #tabs .ui-widget-content .ui-state-default, #tabs .ui-widget-header .ui-state-default {
+  background: var(--default-button-bg);
+}
+#tabs .ui-state-hover a, #tabs .ui-state-hover a:link {
+  background: var(--default-button-hover-bg);
+}
+#tabs .ui-state-active,  #tabs .ui-widget-content .ui-state-active,  #tabs .ui-widget-header .ui-state-active {
+  background: var(--body-bg);
+  color: var(--body-fg);
+  border-color: var(--body-fg);
+}
+#tabs .ui-state-active a, #tabs .ui-state-active a:link, #tabs .ui-state-active a:visited {
+  color: var(--body-fg);
+}
+#tabs {
+  background: var(--body-bg);
+}
