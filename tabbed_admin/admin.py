@@ -186,5 +186,3 @@ class TabbedModelAdmin(admin.ModelAdmin, AdminBaseWithSelectRelated):
         if USE_JQUERY_UI:
             css = {'all': (JQUERY_UI_CSS, 'tabbed_admin/css/tabbed_admin.css', )}
             js = (JQUERY_UI_JS,)
-
-
