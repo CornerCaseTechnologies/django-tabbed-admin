@@ -37,9 +37,9 @@
                 $(window).scrollTop()
                 $('#tabs').tabs({
                 {% if add %}
-                // when adding, don't select a tab by default, we'll do it ourselves
-                // by finding the first available tab.
-                selected: -1
+                    // when adding, don't select a tab by default, we'll do it ourselves
+                    // by finding the first available tab.
+                    selected: -1
                 {% endif %}
               });
 
@@ -48,11 +48,11 @@
                 var disabled_tabs = [];
 
                 {% for tab in page_config %}
-                {% if tab.enabled %}
-                enabled_tabs.push({{ forloop.counter0 }});
-                {% else %}
-                disabled_tabs.push({{ forloop.counter0 }});
-                {% endif %}
+                    {% if tab.enabled %}
+                        enabled_tabs.push({{ forloop.counter0 }});
+                    {% else %}
+                        disabled_tabs.push({{ forloop.counter0 }});
+                    {% endif %}
                 {% endfor %}
 
                 for (var i = 0; i < disabled_tabs.length; i++) {
@@ -60,7 +60,7 @@
                 }
                 // enable the first non-disabled tab in add view
                 {% if add %}
-                $('#tabs').tabs("option", "active", enabled_tabs[0]);
+                    $('#tabs').tabs("option", "active", enabled_tabs[0]);
                 {% endif %}
 
                 // Hightlight tabs with errors inside
@@ -93,7 +93,7 @@
             {% block submit_buttons_bottom %}{% submit_row %}{% endblock %}
 
             {% if adminform and add and adminform.first_field and adminform.first_field.id_for_label %}
-            <script type="text/javascript">document.getElementById("{{ adminform.first_field.id_for_label }}").focus();</script>
+                <script type="text/javascript">document.getElementById("{{ adminform.first_field.id_for_label }}").focus();</script>
             {% endif %}
 
             {% prepopulated_fields_js %}
